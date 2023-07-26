@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A31D2762A6E7DCD00B3119D /* ImageClassificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A31D2752A6E7DCD00B3119D /* ImageClassificationView.swift */; };
+		4A31D2782A6E9C2400B3119D /* ImageClassificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A31D2772A6E9C2400B3119D /* ImageClassificationViewModel.swift */; };
+		4A31D27A2A6F7C3D00B3119D /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4A31D2792A6F7C3C00B3119D /* SqueezeNet.mlmodel */; };
+		4A31D27D2A6F7F9000B3119D /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A31D27C2A6F7F9000B3119D /* UIImageExtensions.swift */; };
 		4A32104D2A6C3519005013BC /* VisionFrameworkAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A32104C2A6C3519005013BC /* VisionFrameworkAppApp.swift */; };
 		4A32104F2A6C3519005013BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A32104E2A6C3519005013BC /* ContentView.swift */; };
 		4A3210512A6C351B005013BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A3210502A6C351B005013BC /* Assets.xcassets */; };
@@ -14,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A31D2752A6E7DCD00B3119D /* ImageClassificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassificationView.swift; sourceTree = "<group>"; };
+		4A31D2772A6E9C2400B3119D /* ImageClassificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassificationViewModel.swift; sourceTree = "<group>"; };
+		4A31D2792A6F7C3C00B3119D /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
+		4A31D27C2A6F7F9000B3119D /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		4A3210492A6C3519005013BC /* VisionFrameworkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisionFrameworkApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A32104C2A6C3519005013BC /* VisionFrameworkAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionFrameworkAppApp.swift; sourceTree = "<group>"; };
 		4A32104E2A6C3519005013BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +40,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A31D2732A6E7DAC00B3119D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4A31D2752A6E7DCD00B3119D /* ImageClassificationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4A31D2742A6E7DB400B3119D /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				4A31D2772A6E9C2400B3119D /* ImageClassificationViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		4A31D27B2A6F7F7F00B3119D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				4A31D27C2A6F7F9000B3119D /* UIImageExtensions.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		4A3210402A6C3519005013BC = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +83,10 @@
 		4A32104B2A6C3519005013BC /* VisionFrameworkApp */ = {
 			isa = PBXGroup;
 			children = (
+				4A31D27B2A6F7F7F00B3119D /* Helper */,
+				4A31D2792A6F7C3C00B3119D /* SqueezeNet.mlmodel */,
+				4A31D2742A6E7DB400B3119D /* View Models */,
+				4A31D2732A6E7DAC00B3119D /* Views */,
 				4A32104C2A6C3519005013BC /* VisionFrameworkAppApp.swift */,
 				4A32104E2A6C3519005013BC /* ContentView.swift */,
 				4A3210502A6C351B005013BC /* Assets.xcassets */,
@@ -137,8 +173,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A31D2782A6E9C2400B3119D /* ImageClassificationViewModel.swift in Sources */,
 				4A32104F2A6C3519005013BC /* ContentView.swift in Sources */,
+				4A31D27A2A6F7C3D00B3119D /* SqueezeNet.mlmodel in Sources */,
+				4A31D27D2A6F7F9000B3119D /* UIImageExtensions.swift in Sources */,
 				4A32104D2A6C3519005013BC /* VisionFrameworkAppApp.swift in Sources */,
+				4A31D2762A6E7DCD00B3119D /* ImageClassificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +235,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -249,7 +289,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -275,6 +315,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,6 +345,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
