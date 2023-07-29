@@ -15,7 +15,7 @@ struct ImageClassificationView: View {
     var navTitle:String
     var body: some View {
         VStack(spacing: 16) {
-            Image(uiImage: icViewModel.uiImage ?? UIImage(imageLiteralResourceName: "sunset"))
+            Image(uiImage: icViewModel.uiImage ?? UIImage(imageLiteralResourceName: "book"))
                 .resizable()
                 .frame(width:300,height:400)
                 .cornerRadius(15)
@@ -24,9 +24,9 @@ struct ImageClassificationView: View {
             PhotosPicker("Select photo", selection: $icViewModel.photoPickerItem,matching: .all(of: [.images]))
             
             Button {
-                icViewModel.classifyImage(uiImage:icViewModel.uiImage ?? UIImage(imageLiteralResourceName: "sunset"))
+                icViewModel.classifyImage(uiImage:icViewModel.uiImage ?? UIImage(imageLiteralResourceName: "book"))
                 
-                icViewModel.classifyImageMLCore(uiImage: icViewModel.uiImage ?? UIImage(imageLiteralResourceName: "sunset"))
+                icViewModel.classifyImageMLCore(uiImage: icViewModel.uiImage ?? UIImage(imageLiteralResourceName: "book"))
             } label: {
                 Text("Classify Image")
                     .padding()

@@ -35,7 +35,7 @@ struct ContentView: View {
                     }
                     
                     NavigationLink {
-                        Text(imageVison[1])
+                        ImageSaliencyView()
                     } label: {
                         Text(imageVison[1])
                             .padding()
