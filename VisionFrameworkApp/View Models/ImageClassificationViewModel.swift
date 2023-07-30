@@ -12,6 +12,10 @@ import VisionKit
 import SwiftUI
 import PhotosUI
 
+#if os(macOS)
+import AppKit
+#endif
+
 /// View Model for Image Classification
 class ImageClassificationViewModel : ObservableObject {
     
@@ -19,7 +23,12 @@ class ImageClassificationViewModel : ObservableObject {
     @Published var photoPickerItem : PhotosPickerItem? = nil
     
     /// The UIImage representation of the selected image
+#if os(iOS)
     @Published var uiImage : UIImage?
+#endif
+#if os(macOS)
+    @Published var nsImage : NSImage?
+#endif
     
     /// An array to store the image classification results
     @Published var imageClassificationText: [String] = []
@@ -29,12 +38,22 @@ class ImageClassificationViewModel : ObservableObject {
     
     /// Classify the given UIImage using Vision framework
     /// - Parameter uiImage: The UIImage to be classified
-    func classifyImage(uiImage: UIImage)  {
+    func classifyImage(image: Any)  {
         
+        #if os(iOS)
+        let uiImage = image as? UIImage
         guard let ciImage = CIImage(image: uiImage) else {
             print("Empty image")
             return
         }
+        
+        #endif
+        
+        #if os(macOS)
+        let nsImage = image as? NSImage
+        let cgImage = nsImage!.cgImage(forProposedRect: nil, context: nil, hints: nil)
+        let ciImage = CIImage(cgImage: cgImage!)
+        #endif
         
         let handler = VNImageRequestHandler(ciImage: ciImage)
         
@@ -48,9 +67,9 @@ class ImageClassificationViewModel : ObservableObject {
         }
         
         // Set to true if running on the simulator to use CPU instead of GPU for image classification
-        #if targetEnvironment(simulator)
+#if targetEnvironment(simulator)
         request.usesCPUOnly = true
-        #endif
+#endif
         
         do {
             try handler.perform([request])
@@ -62,11 +81,22 @@ class ImageClassificationViewModel : ObservableObject {
     
     /// Classify the given UIImage using the SqueezeNet Core ML model
     /// - Parameter uiImage: The UIImage to be classified
-    func classifyImageMLCore(uiImage: UIImage) {
+    func classifyImageMLCore(image: Any) {
+        
         
         // Resize the image to the required size for SqueezeNet
+        
+        #if os(iOS)
+        let uiImage = image as? UIImage
         let resizeImage = uiImage.resizeImageTo(size: CGSize(width: 227, height: 227))
         guard let cvPixelBuffer = resizeImage?.convertToBuffer() else { return  }
+        #endif
+        
+        #if os(macOS)
+        let nsImage = image as? NSImage
+        let resizeImage = nsImage?.resized(to: NSSize(width: 227, height: 227))
+        guard let cvPixelBuffer = resizeImage?.toCVPixelBuffer() else { return  }
+        #endif
         
         do {
             // Load the SqueezeNet Core ML model

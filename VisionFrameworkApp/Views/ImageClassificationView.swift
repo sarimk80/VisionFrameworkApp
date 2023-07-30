@@ -8,6 +8,10 @@
 import SwiftUI
 import PhotosUI
 
+#if os(macOS)
+import AppKit
+#endif
+
 struct ImageClassificationView: View {
     
     @StateObject private var icViewModel = ImageClassificationViewModel()
@@ -15,18 +19,40 @@ struct ImageClassificationView: View {
     var navTitle:String
     var body: some View {
         VStack(spacing: 16) {
+            
+            #if os(iOS)
             Image(uiImage: icViewModel.uiImage ?? UIImage(imageLiteralResourceName: "book"))
                 .resizable()
                 .frame(width:300,height:400)
                 .cornerRadius(15)
+            #endif
+            
+            #if os(macOS)
+            Image(nsImage: NSImage(imageLiteralResourceName: "book"))
+                .resizable()
+                .frame(width:300,height:400)
+                .cornerRadius(15)
+            #endif
+            
+            
             
             
             PhotosPicker("Select photo", selection: $icViewModel.photoPickerItem,matching: .all(of: [.images]))
             
             Button {
-                icViewModel.classifyImage(uiImage:icViewModel.uiImage ?? UIImage(imageLiteralResourceName: "book"))
+                #if os(iOS)
+                icViewModel.classifyImage(image:icViewModel.uiImage ?? UIImage(imageLiteralResourceName: "house"))
                 
-                icViewModel.classifyImageMLCore(uiImage: icViewModel.uiImage ?? UIImage(imageLiteralResourceName: "book"))
+                icViewModel.classifyImageMLCore(image: icViewModel.uiImage ?? UIImage(imageLiteralResourceName: "house"))
+                #endif
+                
+                #if os(macOS)
+                icViewModel.classifyImage(image:icViewModel.nsImage ?? NSImage(imageLiteralResourceName: "house"))
+                
+                icViewModel.classifyImageMLCore(image: icViewModel.nsImage ?? NSImage(imageLiteralResourceName: "house"))
+                #endif
+                
+                
             } label: {
                 Text("Classify Image")
                     .padding()
@@ -52,7 +78,13 @@ struct ImageClassificationView: View {
                         
                     }
                     
+                    #if os(iOS)
                     icViewModel.uiImage = UIImage(data: unwrapData)
+                    #endif
+                    
+                    #if os(macOS)
+                    icViewModel.nsImage = NSImage(data: unwrapData)
+                    #endif
 
                 }catch let error{
                     print(error.localizedDescription)
@@ -61,7 +93,6 @@ struct ImageClassificationView: View {
             }
         })
         .navigationTitle("Image Classification")
-        .navigationBarTitleDisplayMode(.inline)
         
     }
 }
