@@ -15,6 +15,8 @@
 		4A32104F2A6C3519005013BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A32104E2A6C3519005013BC /* ContentView.swift */; };
 		4A3210512A6C351B005013BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A3210502A6C351B005013BC /* Assets.xcassets */; };
 		4A3210542A6C351B005013BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A3210532A6C351B005013BC /* Preview Assets.xcassets */; };
+		4A856F142A79096B00569422 /* ImageAlignmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A856F132A79096B00569422 /* ImageAlignmentView.swift */; };
+		4A856F162A790B0800569422 /* ImageAlignmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A856F152A790B0800569422 /* ImageAlignmentViewModel.swift */; };
 		4A95728B2A739C3200835105 /* ImageSaliencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A95728A2A739C3200835105 /* ImageSaliencyView.swift */; };
 		4A95728D2A73A1AB00835105 /* ImageSaliencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A95728C2A73A1AB00835105 /* ImageSaliencyViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -29,6 +31,8 @@
 		4A32104E2A6C3519005013BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4A3210502A6C351B005013BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A3210532A6C351B005013BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4A856F132A79096B00569422 /* ImageAlignmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAlignmentView.swift; sourceTree = "<group>"; };
+		4A856F152A790B0800569422 /* ImageAlignmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAlignmentViewModel.swift; sourceTree = "<group>"; };
 		4A95728A2A739C3200835105 /* ImageSaliencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaliencyView.swift; sourceTree = "<group>"; };
 		4A95728C2A73A1AB00835105 /* ImageSaliencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaliencyViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,6 +53,7 @@
 			children = (
 				4A31D2752A6E7DCD00B3119D /* ImageClassificationView.swift */,
 				4A95728A2A739C3200835105 /* ImageSaliencyView.swift */,
+				4A856F132A79096B00569422 /* ImageAlignmentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -58,6 +63,7 @@
 			children = (
 				4A31D2772A6E9C2400B3119D /* ImageClassificationViewModel.swift */,
 				4A95728C2A73A1AB00835105 /* ImageSaliencyViewModel.swift */,
+				4A856F152A790B0800569422 /* ImageAlignmentViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -179,9 +185,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A856F142A79096B00569422 /* ImageAlignmentView.swift in Sources */,
 				4A31D2782A6E9C2400B3119D /* ImageClassificationViewModel.swift in Sources */,
 				4A32104F2A6C3519005013BC /* ContentView.swift in Sources */,
 				4A31D27A2A6F7C3D00B3119D /* SqueezeNet.mlmodel in Sources */,
+				4A856F162A790B0800569422 /* ImageAlignmentViewModel.swift in Sources */,
 				4A31D27D2A6F7F9000B3119D /* UIImageExtensions.swift in Sources */,
 				4A32104D2A6C3519005013BC /* VisionFrameworkAppApp.swift in Sources */,
 				4A31D2762A6E7DCD00B3119D /* ImageClassificationView.swift in Sources */,
@@ -318,6 +326,7 @@
 				DEVELOPMENT_TEAM = N65MK7D7BV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Demo testing";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -351,6 +360,7 @@
 				DEVELOPMENT_TEAM = N65MK7D7BV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Demo testing";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

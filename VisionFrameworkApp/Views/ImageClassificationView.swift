@@ -28,7 +28,7 @@ struct ImageClassificationView: View {
             #endif
             
             #if os(macOS)
-            Image(nsImage: NSImage(imageLiteralResourceName: "book"))
+            Image(nsImage:icViewModel.nsImage ?? NSImage(imageLiteralResourceName: "book"))
                 .resizable()
                 .frame(width:300,height:400)
                 .cornerRadius(15)
@@ -55,11 +55,11 @@ struct ImageClassificationView: View {
                 
             } label: {
                 Text("Classify Image")
-                    .padding()
+                    
                     .foregroundColor(.yellow)
-                    .background(.black)
                     .cornerRadius(8)
             }
+            .buttonStyle(.bordered)
 
             Text(icViewModel.imageClassificationText.first ?? "")
             Text(icViewModel.imageClassificationText.last ?? "")

@@ -40,6 +40,8 @@ class ImageClassificationViewModel : ObservableObject {
     /// - Parameter uiImage: The UIImage to be classified
     func classifyImage(image: Any)  {
         
+        self.imageClassificationText.removeAll()
+        
         #if os(iOS)
         let uiImage = image as? UIImage
         guard let ciImage = CIImage(image: uiImage) else {
@@ -94,7 +96,7 @@ class ImageClassificationViewModel : ObservableObject {
         
         #if os(macOS)
         let nsImage = image as? NSImage
-        let resizeImage = nsImage?.resized(to: NSSize(width: 227, height: 227))
+        let resizeImage = nsImage?.resized(to: NSSize(width: 113.5, height: 113.5))
         guard let cvPixelBuffer = resizeImage?.toCVPixelBuffer() else { return  }
         #endif
         

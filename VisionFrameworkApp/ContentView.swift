@@ -8,6 +8,37 @@
 import SwiftUI
 import Vision
 
+enum ImageVisonEnum: String, CaseIterable,Identifiable{
+case ImageClassification
+    case ImageSaliency
+    case ImageAlignment
+    case ImageSimilarity
+    case ObjectDetection
+    case ObjectTracking
+    case TrajectoryDetection
+    case ContourDetection
+    case TextDetection
+    case TextRecognition
+    case FaceDetection
+    case FaceTracking
+    case FaceLandmarks
+    case FaceCaptureQuality
+    case HumanBodyDetection
+    case BodyPose
+    case HandPose
+    case AnimalRecognition
+    case BarcodeDetection
+    case RectangleDetection
+    case HorizonDetection
+    case OpticalFlow
+    case PersonSegmentation
+    case DocumentDetection
+    
+    var id:String {
+        return self.rawValue
+    }
+}
+
 struct ContentView: View {
     
     let imageVison = [
@@ -18,11 +49,82 @@ struct ContentView: View {
         "Face Landmarks","Face Capture Quality","Human Body Detection",
         "Body Pose","Hand Pose","Animal Recognition",
         "Barcode Detection","Rectangle Detection","Horizon Detection",
-        "Optical Flow","Person Segmentation","Document Detection "
+        "Optical Flow","Person Segmentation","Document Detection"
     ]
+    
+    @State private var imageVisonEnum:ImageVisonEnum = ImageVisonEnum.ImageClassification
     
     
     var body: some View {
+        
+#if os(macOS)
+        NavigationSplitView {
+            List(ImageVisonEnum.allCases, selection: $imageVisonEnum) { value in
+                Text(value.rawValue)
+                    .padding()
+                    .onTapGesture {
+                        self.imageVisonEnum = value
+                    }
+            }
+            .listStyle(.sidebar)
+            .navigationTitle("Image Vison")
+        } detail: {
+            switch imageVisonEnum {
+            case .ImageClassification:
+                ImageClassificationView(navTitle: imageVison[0])
+            case .ImageSaliency:
+                ImageSaliencyView()
+            case .ImageAlignment:
+                ImageAlignmentView()
+            case .ImageSimilarity:
+                Text(imageVison[3])
+            case .ObjectDetection:
+                Text(imageVison[4])
+            case .ObjectTracking:
+                Text(imageVison[5])
+            case .TrajectoryDetection:
+                Text(imageVison[6])
+            case .ContourDetection:
+                Text(imageVison[7])
+            case .TextDetection:
+                Text(imageVison[8])
+            case .TextRecognition:
+                Text(imageVison[9])
+            case .FaceDetection:
+                Text(imageVison[10])
+            case .FaceTracking:
+                Text(imageVison[11])
+            case .FaceLandmarks:
+                Text(imageVison[12])
+            case .FaceCaptureQuality:
+                Text(imageVison[13])
+            case .HumanBodyDetection:
+                Text(imageVison[14])
+            case .BodyPose:
+                Text(imageVison[15])
+            case .HandPose:
+                Text(imageVison[16])
+            case .AnimalRecognition:
+                Text(imageVison[17])
+            case .BarcodeDetection:
+                Text(imageVison[18])
+            case .RectangleDetection:
+                Text(imageVison[19])
+            case .HorizonDetection:
+                Text(imageVison[20])
+            case .OpticalFlow:
+                Text(imageVison[21])
+            case .PersonSegmentation:
+                Text(imageVison[22])
+            case .DocumentDetection:
+                Text(imageVison[23])
+            }
+        }
+        
+#endif
+        
+        
+#if os(iOS)
         NavigationView {
             List {
                 
@@ -64,7 +166,7 @@ struct ContentView: View {
                     
                 }
                 
-               
+                
                 Group {
                     NavigationLink {
                         Text(imageVison[5])
@@ -204,12 +306,14 @@ struct ContentView: View {
                             .padding()
                     }
                 }
-    
+                
                 
             }
             .listStyle(.plain)
             .navigationTitle("Vision")
         }
+        
+        #endif
     }
 }
 
