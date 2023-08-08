@@ -77,7 +77,7 @@ struct ContentView: View {
             case .ImageAlignment:
                 ImageAlignmentView()
             case .ImageSimilarity:
-                Text(imageVison[3])
+                ImageSimilarityView()
             case .ObjectDetection:
                 Text(imageVison[4])
             case .ObjectTracking:

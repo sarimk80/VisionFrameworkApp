@@ -13,20 +13,24 @@ struct ImageAlignmentView: View {
     
     var body: some View {
         List {
-            Image(nsImage: NSImage(imageLiteralResourceName: "paronamic_2"))
-                .resizable()
-                .frame(width: 300,height: 400)
-            Image(nsImage: NSImage(imageLiteralResourceName: "paronamic_3"))
-                .resizable()
-                .frame(width: 300,height: 400)
+            HStack{
+                Image(nsImage: NSImage(imageLiteralResourceName: "paronamic_2"))
+                    .resizable()
+                    .frame(width: 300,height: 400)
+                Image(nsImage: NSImage(imageLiteralResourceName: "paronamic_3"))
+                    .resizable()
+                    .frame(width: 300,height: 400)
+            }
+            
             
             Image(nsImage: imageAlignViewModel.resultImage)
                 .resizable()
-                .frame(width: 300,height: 400)
+                .frame(width: 400,height: 400)
         }
         .onAppear{
-//            imageAlignViewModel.paronamicImage(targetImage: NSImage(imageLiteralResourceName: "paronamic_2"), refrenceImage: NSImage(imageLiteralResourceName: "paronamic_3"))
-            imageAlignViewModel.homographicImageRegistrationRequest(targetImage: NSImage(imageLiteralResourceName: "paronamic_2"), sourceImage: NSImage(imageLiteralResourceName: "paronamic_3"))
+            imageAlignViewModel.panoramicImage(targetImage: NSImage(imageLiteralResourceName: "paronamic_2"), refrenceImage: NSImage(imageLiteralResourceName: "paronamic_3"))
+            
+//            imageAlignViewModel.homographicImageRegistrationRequest(targetImage: NSImage(imageLiteralResourceName: "paronamic_2"), sourceImage: NSImage(imageLiteralResourceName: "paronamic_3"))
         }
             
     }

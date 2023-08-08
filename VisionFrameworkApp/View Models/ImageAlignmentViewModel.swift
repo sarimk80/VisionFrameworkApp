@@ -20,55 +20,38 @@ class ImageAlignmentViewModel:ObservableObject{
     private var cancellable = Set<AnyCancellable>()
     
     
-    func paronamicImage(targetImage: NSImage,refrenceImage:NSImage) {
-        
-        let targetCgImage = targetImage.cgImage(forProposedRect: nil, context: nil, hints: nil)
-        let refrenceCgImage = refrenceImage.cgImage(forProposedRect: nil, context: nil, hints: nil)
-        
-        
-        let ciImage = CIImage(cgImage: targetCgImage!)
-        let ciImageSource = CIImage(cgImage: refrenceCgImage!)
-        
-        let imageRegistrationRequest = VNTranslationalImageRegistrationRequest(targetedCIImage: ciImageSource,orientation: .up)
-                        
-        let vnRequestHandler = VNImageRequestHandler(ciImage: ciImage,orientation: .up)
-        
-        
-        do{
+    // Function to perform panoramic image alignment using VNTranslationalImageRegistrationRequest.
+        func panoramicImage(targetImage: NSImage, refrenceImage: NSImage) {
+            // Convert NSImage to CGImage for Vision processing.
+            guard let targetCgImage = targetImage.cgImage(forProposedRect: nil, context: nil, hints: nil),
+                  let refrenceCgImage = refrenceImage.cgImage(forProposedRect: nil, context: nil, hints: nil) else { return }
             
-            try vnRequestHandler.perform([imageRegistrationRequest])
-                        
-            if let alignment = imageRegistrationRequest.results?.first as? VNImageTranslationAlignmentObservation{
-                                
-                let transform = alignment.alignmentTransform
+            // Create CIImage objects from CGImage.
+            let ciImage = CIImage(cgImage: targetCgImage)
+            let ciImageSource = CIImage(cgImage: refrenceCgImage)
+            
+            // Create VNTranslationalImageRegistrationRequest with the source CIImage and perform the request.
+            let imageRegistrationRequest = VNTranslationalImageRegistrationRequest(targetedCIImage: ciImageSource, orientation: .up)
+            let vnRequestHandler = VNImageRequestHandler(ciImage: ciImage, orientation: .up)
+            
+            do {
+                try vnRequestHandler.perform([imageRegistrationRequest])
                 
-                let alignImage = ciImageSource.transformed(by: transform, highQualityDownsample: true)
-                
-                //CIAdditionCompositing
-                //CISourceOverCompositing
-                //CIColorBlendMode
-                // CIColorBurnBlendMode
-                // CIColorDodgeBlendMode
-                //CIExclusionBlendMode
-                //CILightenBlendMode
-                //CIOverlayBlendMode
-                
-                let compositImage = alignImage.applyingFilter("CIOverlayBlendMode", parameters: ["inputBackgroundImage":ciImage])
-                                
-                
-                let newComposit = alignImage.composited(over: ciImage)
-                                
-                //let onlyTransformImage = convertCIImageToNSImage(ciImage: alignImage)
-                
-                appendImage(nsImagealign: convertCIImageToNSImage(ciImage: compositImage)!)
-                
+                // Retrieve the translation result from the request and align the source image.
+                if let alignment = imageRegistrationRequest.results?.first as? VNImageTranslationAlignmentObservation {
+                    let transform = alignment.alignmentTransform
+                    let alignImage = ciImageSource.transformed(by: transform, highQualityDownsample: true)
+                    
+                    // Apply compositing to merge aligned images.
+                    let compositImage = alignImage.applyingFilter("CILightenBlendMode", parameters: ["inputBackgroundImage": ciImage])
+                    
+                    // Update the resultImage with the merged image.
+                    appendImage(nsImagealign: convertCIImageToNSImage(ciImage: compositImage)!)
+                }
+            } catch let error {
+                print(error.localizedDescription)
             }
-            
-        }catch let error{
-            print(error.localizedDescription)
         }
-        
-    }
     
     
     func homographicImageRegistrationRequest(targetImage: NSImage,sourceImage:NSImage){
@@ -88,6 +71,7 @@ class ImageAlignmentViewModel:ObservableObject{
             
             guard let matrix = observation?.warpTransform else {return}
             
+            
             let targetCIImage = CIImage(cgImage:targetCgImage)
             
             let affineTransform = CGAffineTransform(
@@ -99,7 +83,7 @@ class ImageAlignmentViewModel:ObservableObject{
                    ty: CGFloat(matrix[2][1])
                )
             
-           let transformImage = targetCIImage.transformed(by: affineTransform)
+           let transformImage = targetCIImage.transformed(by: affineTransform,highQualityDownsample: true)
             
             //CIAdditionCompositing
             //CISourceOverCompositing
@@ -110,14 +94,14 @@ class ImageAlignmentViewModel:ObservableObject{
             //CILightenBlendMode
             //CIOverlayBlendMode
             
-            let compositImage = transformImage.applyingFilter("CILightenBlendMode", parameters: ["inputBackgroundImage": CIImage(cgImage: sourceCgImage)])
+            let compositImage = transformImage.applyingFilter("CIAdditionCompositing", parameters: ["inputBackgroundImage": CIImage(cgImage: sourceCgImage)])
                             
             
-            let newComposit = transformImage.composited(over: targetCIImage)
+            let newComposit = transformImage.composited(over: CIImage(cgImage: sourceCgImage))
                             
             //let onlyTransformImage = convertCIImageToNSImage(ciImage: alignImage)
             
-            appendImage(nsImagealign: convertCIImageToNSImage(ciImage: newComposit)!)
+            appendImage(nsImagealign: convertCIImageToNSImage(ciImage: compositImage)!)
             
             
            
@@ -127,17 +111,6 @@ class ImageAlignmentViewModel:ObservableObject{
         }
     }
     
-    
-//    func transformImage(image: NSImage,matrix:matrix_float3x3) -> NSImage{
-//
-//        let newImage = NSImage(size: image.size)
-//
-//        let context = NSGraphicsContext()
-//
-//
-//
-//
-//    }
     
     func convertPixelBufferToNSImage(pixelBuffer: CVPixelBuffer) -> NSImage? {
         let ciImage = CIImage(cvPixelBuffer: pixelBuffer)

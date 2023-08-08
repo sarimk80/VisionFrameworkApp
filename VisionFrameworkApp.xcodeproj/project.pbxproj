@@ -19,6 +19,8 @@
 		4A856F162A790B0800569422 /* ImageAlignmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A856F152A790B0800569422 /* ImageAlignmentViewModel.swift */; };
 		4A95728B2A739C3200835105 /* ImageSaliencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A95728A2A739C3200835105 /* ImageSaliencyView.swift */; };
 		4A95728D2A73A1AB00835105 /* ImageSaliencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A95728C2A73A1AB00835105 /* ImageSaliencyViewModel.swift */; };
+		4AB3961B2A80D8EF008C2755 /* ImageSimilarityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3961A2A80D8EF008C2755 /* ImageSimilarityView.swift */; };
+		4AB3961D2A80DF31008C2755 /* ImageSimilarityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3961C2A80DF31008C2755 /* ImageSimilarityViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		4A856F152A790B0800569422 /* ImageAlignmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAlignmentViewModel.swift; sourceTree = "<group>"; };
 		4A95728A2A739C3200835105 /* ImageSaliencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaliencyView.swift; sourceTree = "<group>"; };
 		4A95728C2A73A1AB00835105 /* ImageSaliencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaliencyViewModel.swift; sourceTree = "<group>"; };
+		4AB3961A2A80D8EF008C2755 /* ImageSimilarityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSimilarityView.swift; sourceTree = "<group>"; };
+		4AB3961C2A80DF31008C2755 /* ImageSimilarityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSimilarityViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 				4A31D2752A6E7DCD00B3119D /* ImageClassificationView.swift */,
 				4A95728A2A739C3200835105 /* ImageSaliencyView.swift */,
 				4A856F132A79096B00569422 /* ImageAlignmentView.swift */,
+				4AB3961A2A80D8EF008C2755 /* ImageSimilarityView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -64,6 +69,7 @@
 				4A31D2772A6E9C2400B3119D /* ImageClassificationViewModel.swift */,
 				4A95728C2A73A1AB00835105 /* ImageSaliencyViewModel.swift */,
 				4A856F152A790B0800569422 /* ImageAlignmentViewModel.swift */,
+				4AB3961C2A80DF31008C2755 /* ImageSimilarityViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -191,6 +197,8 @@
 				4A31D27A2A6F7C3D00B3119D /* SqueezeNet.mlmodel in Sources */,
 				4A856F162A790B0800569422 /* ImageAlignmentViewModel.swift in Sources */,
 				4A31D27D2A6F7F9000B3119D /* UIImageExtensions.swift in Sources */,
+				4AB3961B2A80D8EF008C2755 /* ImageSimilarityView.swift in Sources */,
+				4AB3961D2A80DF31008C2755 /* ImageSimilarityViewModel.swift in Sources */,
 				4A32104D2A6C3519005013BC /* VisionFrameworkAppApp.swift in Sources */,
 				4A31D2762A6E7DCD00B3119D /* ImageClassificationView.swift in Sources */,
 				4A95728D2A73A1AB00835105 /* ImageSaliencyViewModel.swift in Sources */,
