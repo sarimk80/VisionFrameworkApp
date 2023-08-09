@@ -22,6 +22,9 @@ struct ImageSimilarityView: View {
                     .frame(width: 300,height: 400)
             }
             
+            Text(imageSimilarityVM.distance.debugDescription)
+                .font(.title)
+            
         }
         .onAppear{
             imageSimilarityVM.compareImages(image_1: NSImage(imageLiteralResourceName: "city_1"), image_2: NSImage(imageLiteralResourceName: "city_2"))
