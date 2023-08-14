@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A1317CF2A88E82F00F6E327 /* ImageTextRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1317CE2A88E82F00F6E327 /* ImageTextRequestView.swift */; };
+		4A1317D12A88E8B100F6E327 /* ImageTextRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1317D02A88E8B100F6E327 /* ImageTextRequestViewModel.swift */; };
 		4A31D2762A6E7DCD00B3119D /* ImageClassificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A31D2752A6E7DCD00B3119D /* ImageClassificationView.swift */; };
 		4A31D2782A6E9C2400B3119D /* ImageClassificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A31D2772A6E9C2400B3119D /* ImageClassificationViewModel.swift */; };
 		4A31D27A2A6F7C3D00B3119D /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4A31D2792A6F7C3C00B3119D /* SqueezeNet.mlmodel */; };
@@ -15,6 +17,9 @@
 		4A32104F2A6C3519005013BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A32104E2A6C3519005013BC /* ContentView.swift */; };
 		4A3210512A6C351B005013BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A3210502A6C351B005013BC /* Assets.xcassets */; };
 		4A3210542A6C351B005013BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A3210532A6C351B005013BC /* Preview Assets.xcassets */; };
+		4A5B3EE72A839997001D61C8 /* YOLOv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4A5B3EE62A839997001D61C8 /* YOLOv3.mlmodel */; };
+		4A5B3EE92A839B4C001D61C8 /* ObjectDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5B3EE82A839B4C001D61C8 /* ObjectDetectionView.swift */; };
+		4A5B3EEB2A839BA9001D61C8 /* ObjectDetectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5B3EEA2A839BA9001D61C8 /* ObjectDetectionViewModel.swift */; };
 		4A856F142A79096B00569422 /* ImageAlignmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A856F132A79096B00569422 /* ImageAlignmentView.swift */; };
 		4A856F162A790B0800569422 /* ImageAlignmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A856F152A790B0800569422 /* ImageAlignmentViewModel.swift */; };
 		4A95728B2A739C3200835105 /* ImageSaliencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A95728A2A739C3200835105 /* ImageSaliencyView.swift */; };
@@ -24,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A1317CE2A88E82F00F6E327 /* ImageTextRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRequestView.swift; sourceTree = "<group>"; };
+		4A1317D02A88E8B100F6E327 /* ImageTextRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextRequestViewModel.swift; sourceTree = "<group>"; };
 		4A31D2752A6E7DCD00B3119D /* ImageClassificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassificationView.swift; sourceTree = "<group>"; };
 		4A31D2772A6E9C2400B3119D /* ImageClassificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassificationViewModel.swift; sourceTree = "<group>"; };
 		4A31D2792A6F7C3C00B3119D /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
@@ -33,6 +40,9 @@
 		4A32104E2A6C3519005013BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4A3210502A6C351B005013BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A3210532A6C351B005013BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4A5B3EE62A839997001D61C8 /* YOLOv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3.mlmodel; sourceTree = "<group>"; };
+		4A5B3EE82A839B4C001D61C8 /* ObjectDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionView.swift; sourceTree = "<group>"; };
+		4A5B3EEA2A839BA9001D61C8 /* ObjectDetectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionViewModel.swift; sourceTree = "<group>"; };
 		4A856F132A79096B00569422 /* ImageAlignmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAlignmentView.swift; sourceTree = "<group>"; };
 		4A856F152A790B0800569422 /* ImageAlignmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAlignmentViewModel.swift; sourceTree = "<group>"; };
 		4A95728A2A739C3200835105 /* ImageSaliencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaliencyView.swift; sourceTree = "<group>"; };
@@ -59,6 +69,8 @@
 				4A95728A2A739C3200835105 /* ImageSaliencyView.swift */,
 				4A856F132A79096B00569422 /* ImageAlignmentView.swift */,
 				4AB3961A2A80D8EF008C2755 /* ImageSimilarityView.swift */,
+				4A5B3EE82A839B4C001D61C8 /* ObjectDetectionView.swift */,
+				4A1317CE2A88E82F00F6E327 /* ImageTextRequestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -70,6 +82,8 @@
 				4A95728C2A73A1AB00835105 /* ImageSaliencyViewModel.swift */,
 				4A856F152A790B0800569422 /* ImageAlignmentViewModel.swift */,
 				4AB3961C2A80DF31008C2755 /* ImageSimilarityViewModel.swift */,
+				4A5B3EEA2A839BA9001D61C8 /* ObjectDetectionViewModel.swift */,
+				4A1317D02A88E8B100F6E327 /* ImageTextRequestViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -101,6 +115,7 @@
 		4A32104B2A6C3519005013BC /* VisionFrameworkApp */ = {
 			isa = PBXGroup;
 			children = (
+				4A5B3EE62A839997001D61C8 /* YOLOv3.mlmodel */,
 				4A31D27B2A6F7F7F00B3119D /* Helper */,
 				4A31D2792A6F7C3C00B3119D /* SqueezeNet.mlmodel */,
 				4A31D2742A6E7DB400B3119D /* View Models */,
@@ -192,7 +207,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A856F142A79096B00569422 /* ImageAlignmentView.swift in Sources */,
+				4A1317CF2A88E82F00F6E327 /* ImageTextRequestView.swift in Sources */,
+				4A5B3EE72A839997001D61C8 /* YOLOv3.mlmodel in Sources */,
 				4A31D2782A6E9C2400B3119D /* ImageClassificationViewModel.swift in Sources */,
+				4A1317D12A88E8B100F6E327 /* ImageTextRequestViewModel.swift in Sources */,
 				4A32104F2A6C3519005013BC /* ContentView.swift in Sources */,
 				4A31D27A2A6F7C3D00B3119D /* SqueezeNet.mlmodel in Sources */,
 				4A856F162A790B0800569422 /* ImageAlignmentViewModel.swift in Sources */,
@@ -201,7 +219,9 @@
 				4AB3961D2A80DF31008C2755 /* ImageSimilarityViewModel.swift in Sources */,
 				4A32104D2A6C3519005013BC /* VisionFrameworkAppApp.swift in Sources */,
 				4A31D2762A6E7DCD00B3119D /* ImageClassificationView.swift in Sources */,
+				4A5B3EE92A839B4C001D61C8 /* ObjectDetectionView.swift in Sources */,
 				4A95728D2A73A1AB00835105 /* ImageSaliencyViewModel.swift in Sources */,
+				4A5B3EEB2A839BA9001D61C8 /* ObjectDetectionViewModel.swift in Sources */,
 				4A95728B2A739C3200835105 /* ImageSaliencyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

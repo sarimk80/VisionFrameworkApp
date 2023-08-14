@@ -79,7 +79,7 @@ struct ContentView: View {
             case .ImageSimilarity:
                 ImageSimilarityView()
             case .ObjectDetection:
-                Text(imageVison[4])
+                ObjectDetectionView()
             case .ObjectTracking:
                 Text(imageVison[5])
             case .TrajectoryDetection:
@@ -89,7 +89,7 @@ struct ContentView: View {
             case .TextDetection:
                 Text(imageVison[8])
             case .TextRecognition:
-                Text(imageVison[9])
+                ImageTextRequestView()
             case .FaceDetection:
                 Text(imageVison[10])
             case .FaceTracking:
